@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<form action='/posts/<%=post.id%>?_method=put' method="POST">
+  <div class='form-group'>
+    <label for='post[title]'>Title</label>
+    <input type="text" name='post[title]' class='form-control' value='<%=post.title%>'>
+  </div>
+  <div class='form-group'>
+    <label for='post[picture]'>Picture</label>
+    <input type="text" name='post[picture]' class='form-control' value='<%= post.picture%>'>
+  </div>
+  <button type='submit' class='btn btn-primary'>SUBMIT</button>
+</form>
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+
+<form action='/posts' method='POST'>
+  <div class='form-group'>
+    <label for='tite'>Tite</label>
+    <input type="text" name='post[title]' class='form-control' placeholder='e.g. Play fighting at the dog park with my best friend Spot' >
+  </div>
+  <div class='form-group'>
+    <label for='picture'>Picture</label>
+    <input type="text" name='post[picture]' class='form-control' placeholder='e.g. ttp://globe-views.com/dcim/dreams/photo/photo-06.jpg'>
+  </div>
+  <button type='submit' class='btn btn-primary'>SUBMIT</button>
+</form>
+
+<% include ../partials/footer %>
+

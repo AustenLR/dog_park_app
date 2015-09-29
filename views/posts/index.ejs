@@ -1,0 +1,19 @@
+<% include ../partials/header %>
+
+<div class="row">
+  <% posts.forEach(function(post){ %>
+    <div class="col-xs-4 col-md-3">
+      <div class="thumbnail">
+          <h5><a href="/users/<%=post.user._id%>"> <%= post.user.username %></a> - <%= post.date %></h5>
+          <img src="<%= post.picture %>" width='200' height='200' class='img-rounded'>
+          <div class="caption">
+            <h6>Upvotes : <%= post.upvotes.length %> </h6>
+            <h4><%= post.title %></h4>
+            <a href="/posts/<%= post.id %>" class="btn btn-default btn-xs" role="button">View Post</a>
+          </div>
+      </div>
+    </div>
+  <%  }) %>
+</div>
+
+<% include ../partials/footer %>

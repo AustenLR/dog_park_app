@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+</head>
+<body>
+<div class ='row'>
+  <div class='col-md-offset-5'>
+    <%if (currentUser !== null){ %>
+      <h1>Welcome <%= currentUser.username %></h1> 
+    <% } %>
+  </div>
+</div>
+<div>
+  <nav class='navbar navbar-default'>
+    <ul class='nav navbar-nav nav-pills'>
+      <li role='presentation'><a href="/posts">Home Page</a></li>
+      <li role='presentation'><a href="/users">List of Users</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if (currentUser === null){ %>
+        <li role='presentation'><a href="/login">Log In</a></li>
+      <% } else { %>
+            <li role='presentation'><a href="/users/<%=currentUser._id%>">My Profile</a></li>
+            <li role='presentation'><a href="/posts/new">New Post</a></li>
+            <li role='presentation'><a href="/users/<%=currentUser.id%>/edit">Edit Account</a></li>
+            <li role='presentation'><a href="/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</div>
+
+  

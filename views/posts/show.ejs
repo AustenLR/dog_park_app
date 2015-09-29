@@ -1,0 +1,63 @@
+<% include ../partials/header %>
+  <div class='row'> 
+    <div class='col-md-offset-3 col-md-6'>
+    
+
+  <div class="thumbnail">
+      <% if (currentUser !== undefined && currentUser !== null){ %>
+        <% if (currentUser.username === post.user.username){ %>
+          <a href="/posts/<%= post.id %>/edit" class="btn btn-default btn-xs" role="button">Edit Post</a>
+          <form action="/posts/<%= post.id %>?_method=delete" method='POST'><button type='submit' class="btn btn-warning btn-xs" role="button">Delete Post</button></form>
+      <% } %>
+    <% } %>
+
+      <h4><%= post.user.username %> - <%= post.date %></h4>
+      <img src="<%= post.picture %>" width='300' height='300' class='img-rounded'>
+      <div class="caption">
+      <h4>Upvotes : <%= post.upvotes.length %> </h4>
+      <h2><%= post.title %></h2>
+
+      <% if (currentUser !== undefined && currentUser !== null){ %>
+
+         <% if (post.upvotes.indexOf(currentUser._id) === -1) {%>
+
+        <form action="/posts/<%= post.id %>/upvote?_method=put" method='POST'>
+          <button type='submit' class="btn btn-succuss btn-xs" role="button">Upvote</button>
+        </form>
+
+        <% }else{  %>
+
+        <form action="/posts/<%= post.id %>/downvote?_method=put" method='POST'>
+          <button type='submit' class="btn btn-warning btn-xs" role="button">Undo Upvote</button>
+        </form>
+
+        <% }  %>
+
+        <form action="/posts/<%= post.id %>/comments" method='POST'>
+          <label for='comment[body]'>Comment:</label>
+          <input type="text" name='comment[body]' class='form-control' placeholder='e.g. lololol I woulda destroyed that bone!!'>
+        <button type='submit' class="btn btn-success btn-sm" role="button">Add Comment</button></form>
+      <% } %>
+
+
+
+
+    </div>
+  </div>
+    <% post.comments.forEach(function(comment){ %>
+       <div class="row">
+
+      <h3> <%= comment.user %> : <%= comment.body %></h3>
+      <% if (currentUser !== undefined && currentUser !== null){ %>
+        <% if (currentUser.username === comment.user){ %>
+          <a href="/posts/<%= post.id %>/comments/<%= comment.id %>/edit" class="btn btn-default btn-xs" role="button">Edit Comment</a>
+          <form action="/posts/<%= post.id %>/comments/<%= comment.id %>?_method=delete" method='POST'><button type='submit' class="btn btn-warning btn-xs" role="button">Delete Comment</button></form>
+      <% } %>
+    <% } %>
+  </div>
+ <% }) %>
+  </div>
+  </div>
+
+
+<% include ../partials/footer %>

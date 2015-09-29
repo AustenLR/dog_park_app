@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<h1>Edit Account</h1>
+<form method="POST" action="/users/<%=user.id%>?_method=put" >
+  <div class="form-group">
+    <label for="user[name]">Dog's Name: </label>
+    <input value='<%=user.username%>' type="text" name="user[username]" class="form-control" autofocus>
+  </div>
+  <div class="form-group">
+    <label> Picture: </label>
+    <input value='<%=user.picture%>' type="picture" name="user[picture]" class="form-control">
+  </div>
+  <div class="form-group">
+    <label> Age: </label>
+    <input value='<%=user.age%>' type="age" name="user[age]" class="form-control">
+  </div>
+  <div class="form-group">
+    <label> Breed: </label>
+    <input value='<%=user.breed%>' type="breed" name="user[breed]" class="form-control">
+  </div>
+  <div class="form-group">
+    <label> Favorite Dog Park: </label>
+    <input value='<%=user.favDogPark%>' type="favDogPark" name="user[favDogPark]" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Update" class="btn btn-primary">
+  </div>
+</form>
+<form action="/users/<%= user.id %>?_method=delete" method='POST'>
+  <button type='submit' class="btn btn-warning btn-sm" role="button">DELETE</button>
+</form>
+
+<% include ../partials/footer %>
