@@ -5,7 +5,7 @@
 <div class="row">
   <% users.forEach(function(el){ %>
   <div class="col-sm-4 col-md-4">
-    <div class="thumbnail">
+    <div class="thumbnail thumbnailUsersIndex">
       <img src="<%=el.picture%>">
       <div class="caption">
         <h3> <a href="/users/<%= el.id %>"> <%= el.username %></a></h3>

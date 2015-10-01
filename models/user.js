@@ -1,8 +1,12 @@
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 var mongoose = require('mongoose');
+var Message = require('./message');
+var Post = require('./post');
+var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 mongoose.set('debug', true);
+
 
 var userSchema = new mongoose.Schema ({
                       username: {
@@ -41,8 +45,18 @@ var userSchema = new mongoose.Schema ({
                       pack: [{
                         type: mongoose.Schema.Types.ObjectId,
                         ref: "User"
-                      }]
+                      }],
+                      receivedMessages: [{
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: "Message"
+                      }],
+                      sentMessages: [{
+                        type: mongoose.Schema.Types.ObjectId,
+                        ref: "Message"
+                      }]                      
                     });
+
+userSchema.plugin(deepPopulate);
 
 userSchema.pre('save', function(next) {
   var user = this;

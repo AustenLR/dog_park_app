@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<h1 class='text-center'>Results</h1>
+<div class="row">
+  <% businesses.forEach(function(business){ %>
+    <div class="col-xs-6 col-md-4">
+      <div class="thumbnail thumbnailYelp">
+          <img src="<%= business.image_url %>" width='200' height='200' class='img-rounded'>
+          <div class="caption">
+            <h3><%= business.name %> </h3>
+            <h5>Rating: <%= business.rating %>/5 </h5>
+            <h5>Review Count:<%= business.review_count %> </h5>
+            <h5><%= business.location.address %> </h5>
+            <h5><%= business.location.city %> </h5>
+            <h5>Phone Number:<%= business.phone %> </h5>
+            <h5>Review:<%= business.snippet_text %> </h5>
+          </div>
+      </div>
+    </div>
+  <%  }) %>
+</div>
+
+
+
+<% include ../partials/footer %>

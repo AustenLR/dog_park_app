@@ -11,6 +11,17 @@ var express = require('express'),
     postsRoutes = require("./routes/posts"),
     commentsRoutes = require("./routes/comments"),
     accessRoutes = require("./routes/access");
+    searchRoutes = require("./routes/search");
+    petfinderRoutes = require("./routes/petfinder");
+    messageRoutes = require("./routes/message");
+    require('dotenv').load();
+
+//API call for Yelp
+var oauthSignature = require('oauth-signature');  
+var n = require('nonce')();  
+var request = require('request');  
+var qs = require('querystring');  
+var _ = require('lodash');
 
 app.set('view engine', 'ejs');
 app.use(morgan('tiny'));
@@ -30,6 +41,9 @@ app.use('/', accessRoutes);
 app.use('/users', usersRoutes);
 app.use('/posts', postsRoutes);
 app.use('/posts/:post_id/comments', commentsRoutes);
+app.use('/search', searchRoutes);
+app.use('/petfinder', petfinderRoutes);
+app.use('/users/:user_id/message', messageRoutes);
 
 
 //Root directory
@@ -38,6 +52,6 @@ app.get('/', function(req, res){
 });
 
 //Starting the server
-app.listen(3000, function (){
-  console.log('Server running on port 3000');
+app.listen(app.listen(process.env.PORT || 3000), function (){
+  console.log('Server running');
 });

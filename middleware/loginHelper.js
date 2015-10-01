@@ -15,7 +15,7 @@ var loginHelpers = function (req, res, next) {
     next();
   }
   else {
-    db.User.findById(req.session.id, function(err,user){ //?? Why not findById ? Fri 4:09 
+    db.User.findById(req.session.id, function(err,user){ 
       res.locals.currentUser = user;
       next();
     });

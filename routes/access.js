@@ -7,12 +7,12 @@ var loginMiddleware = require("../middleware/loginHelper");
 router.use(loginMiddleware);
 
 //Login Page w/ Middleware
-router.get('/login', function(req,res){
+router.get('/login', routeMiddleware.preventLoginSignup, function(req,res){
   res.render('users/login');
 });
 
 //Authenticating when logging in 
-router.post("/login", function (req, res) {
+router.post("/login", routeMiddleware.preventLoginSignup, function (req, res) {
   db.User.authenticate(req.body.user, function (err, user) {
     console.log(err);
     if (!err && user !== null) {
@@ -27,12 +27,12 @@ router.post("/login", function (req, res) {
 });
 
 //Signup Page
-router.get('/signup', function(req,res){
+router.get('/signup', routeMiddleware.preventLoginSignup, function(req,res){
   res.render('users/signup');
 });
 
 //Creating a new User
-router.post('/signup', function(req,res){
+router.post('/signup',routeMiddleware.preventLoginSignup, function(req,res){
   db.User.create(req.body.user, function(err, user){
     console.log(err);
     if (user){

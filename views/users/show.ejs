@@ -12,7 +12,9 @@
 
       <% if (currentUser !== undefined && currentUser !== null){ %>
         <% if (currentUser.id !== user.id){ %>
-         <% if (currentUser.pack.indexOf(user) === -1) {%>
+          <button><a href="/users/<%= user.id%>/message/new">Message <%= user.username%></a></button>
+          <br>
+         <% if (currentUser.pack.indexOf(user.id) === -1) {%>
 
         <form action="/users/<%= user.id %>/joinpack?_method=put" method='POST'>
           <button type='submit' class="btn btn-info btn-xs" role="button">Have <%=user.username%> Join Your Pack!</button>
@@ -40,7 +42,7 @@
   </div>
   <% user.pack.forEach(function(pack){ %>
     <div class="col-xs-3 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailPack">
           <img src="<%= pack.picture %>" width='250' height='250' class='img-rounded'>
           <div class="caption">
             <h4><a href="/users/<%= pack.id %>"><%= pack.username %></a></h4>
@@ -60,7 +62,7 @@
   </div>
   <% user.posts.forEach(function(post){ %>
     <div class="col-xs-3 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailShowPosts">
           <h5><%= user.username %> - <%= post.date %></h5>
           <img src="<%= post.picture %>" width='250' height='250' class='img-rounded'>
           <div class="caption">
@@ -78,7 +80,7 @@
   </div>
   <% user.upvotes.forEach(function(upvote){ %>
     <div class="col-xs-3 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailShowUpvotes">
           <h5><%= upvote.username %> - <%= upvote.date %></h5>
           <img src="<%= upvote.picture %>" width='250' height='250' class='img-rounded'>
           <div class="caption">

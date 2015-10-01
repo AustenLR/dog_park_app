@@ -3,7 +3,7 @@
 <div class="row">
   <% posts.forEach(function(post){ %>
     <div class="col-xs-4 col-md-3">
-      <div class="thumbnail">
+      <div class="thumbnail thumbnailPostsIndex">
           <h5><a href="/users/<%=post.user._id%>"> <%= post.user.username %></a> - <%= post.date %></h5>
           <img src="<%= post.picture %>" width='200' height='200' class='img-rounded'>
           <div class="caption">

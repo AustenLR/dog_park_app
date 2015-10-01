@@ -1,0 +1,62 @@
+<% include ../partials/header %>
+
+<h1 class='text-center'>Find a Pet</h1>
+<form method="GET" action="/petfinder" >
+  <label>Obviously you're searching for a dog! But just incase....</label>
+  <br>
+   <label><input type="radio" name='animal' value='dog'> Dog</label> 
+    <br>
+  <label><input type="radio" name='animal' value='pig'> Pig</label>
+  <br>
+  <label><input type="radio" name='animal' value='horse'> Horse</label>
+  <br>
+  <label><input type="radio" name='animal' value='cat'> Cat</label>
+  <br>
+  <label><input type="radio" name='animal' value='barnyard'> Barnyard Animal</label>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for='breed'> Breed: </label>
+    <input type="breed" name="breed" class="form-control" placeholder='Terrier'>
+  </div>
+    <label>Sex:</label>
+  <br>
+   <label><input type="radio" name='sex' value='M'> Male</label> 
+    <br>
+    <label><input type="radio" name='sex' value='F'> Female</label> 
+  <br>
+  <br>
+  <label>Size:</label>
+  <br>
+   <label><input type="radio" name='size' value='S'> Small</label> 
+    <br>
+  <label><input type="radio" name='size' value='M'> Medium</label>
+  <br>
+  <label><input type="radio" name='size' value='L'> Large</label>
+  <br>
+  <label><input type="radio" name='size' value='Extra-Large'> XL</label>
+  <br>
+  <br>
+  <br>
+    <label>Age:</label>
+  <br>
+   <label><input type="radio" name='age' value='Baby'> Puppy</label> 
+    <br>
+    <label><input type="radio" name='age' value='Young'> Young</label> 
+  <br>
+   <label><input type="radio" name='age' value='Adult'> Adult</label> 
+    <br>
+  <label><input type="radio" name='age' value='Senior'> Senior</label>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for='zipCode'> Zip Code: </label>
+    <input type="zipCode" name="zipCode" class="form-control" placeholder='94131'>
+  </div> 
+  <div class="form-group">
+    <input type="submit" value="Search" class="btn btn-primary">
+  </div>
+</form>
+
+
+<% include ../partials/footer %>

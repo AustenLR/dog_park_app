@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+
+<h1 class='text-center'>Dog Resources</h1>
+<form method="GET" action="/search" >
+  <label>What are you looking for?</label>
+  <br>
+   <label><input type="radio" name='search' value='off-leash+dog+park'> Dog Park</label> 
+    <br>
+  <label><input type="radio" name='search' value='veterinarian'> Veterinarian</label>
+  <br>
+  <label><input type="radio" name='search' value='dog+walker'> Dog Walker</label>
+  <br>
+  <label><input type="radio" name='search' value='pet+groomer'> Groomer</label>
+  <br>
+  <label><input type="radio" name='search' value='pet+boarding'> Dog Hotel</label>
+  <br>
+  <label><input type="radio" name='search' value='pet+store'> Pet Store</label>
+  <br>
+  <br>
+  <div class="form-group">
+    <label for='zipCode'> Zip Code: </label>
+    <input type="zipCode" name="zipCode" class="form-control" placeholder='94131'>
+  </div>
+  <div class="form-group">
+    <label for='distance'> Distance (in miles): </label>
+    <input type="distance" name="distance" class="form-control" placeholder='5.5'>
+  </div>
+
+    <label>Sort By:</label>
+  <br>
+   <label><input type="radio" name='sort' value='1'> Distance</label> 
+    <br>
+    <label><input type="radio" name='sort' value='2'> Highest Rated</label>  
+  <div class="form-group">
+    <input type="submit" value="Search" class="btn btn-primary">
+  </div>
+</form>
+
+
+<% include ../partials/footer %>

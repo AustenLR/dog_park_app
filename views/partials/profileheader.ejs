@@ -4,33 +4,42 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
  <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-<div class ='row'>
-  <div class='col-md-offset-5'>
-    <%if (currentUser !== null){ %>
-      <h1>Welcome <%= currentUser.username %></h1> 
-    <% } %>
-  </div>
-</div>
-<div>
-  <nav class='navbar navbar-default'>
+  <nav class='navbar navbar-default navbar-fixed-top'>
+  <div class="container-fluid">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class='navbar-collapse collapse'>
     <ul class='nav navbar-nav nav-pills'>
-      <li role='presentation'><a href="/posts">Home Page</a></li>
-      <li role='presentation'><a href="/users">List of Users</a></li>
+      <li role='presentation'><a href="/posts">News Feed</a></li>
+      <li role='presentation'><a href="/users">Profiles</a></li>
+      <li role='presentation'><a href="/search/new">Dog Resources</a></li>
+      <li role='presentation'><a href="/petfinder/search">Adopt!</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if (currentUser === null){ %>
+        <li role='presentation'><a href="/signup">Sign Up</a></li>
         <li role='presentation'><a href="/login">Log In</a></li>
       <% } else { %>
+            <li role='presentation'><a href="/users/<%=currentUser._id%>/message">Mail</a></li>
             <li role='presentation'><a href="/users/<%=currentUser._id%>">My Profile</a></li>
             <li role='presentation'><a href="/posts/new">New Post</a></li>
             <li role='presentation'><a href="/users/<%=currentUser.id%>/edit">Edit Account</a></li>
             <li role='presentation'><a href="/logout">Logout</a></li>
       <% } %>
     </ul>
+    </div>
   </nav>
-</div>
 
   

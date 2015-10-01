@@ -15,7 +15,7 @@ router.get('/', function(req, res){
 
 //New Post Page 
   //will identify the user posting by the loginhelper local storage current user
-router.get('/new', function(req, res){
+router.get('/new', routeMiddleware.ensureLoggedIn, function(req, res){
   res.render('posts/new');
 });
 
@@ -34,7 +34,7 @@ router.get('/:id/edit', function(req, res){
 });
 
 //Posting a New post
-router.post('/', function(req, res){
+router.post('/', routeMiddleware.ensureLoggedIn, function(req, res){
   db.User.findById(req.session.id, function(err,user){
     db.Post.create(req.body.post, function(err, post){
       post.user = user._id;

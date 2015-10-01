@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+<h1 class='text-center'>Results</h1>
+<div class="row">
+  <% pets.forEach(function(pet){ %>
+    <div class="col-xs-6 col-md-4">
+      <div class="thumbnail thumbnailPetfinder">
+          <% if(pet.media.photos) {%>
+            <img src="<%= pet.media.photos.photo[3].$t %>" width='200' height='200' class='img-rounded'>  
+          <% } else { %>
+          <img src="data:image/jpeg;base64,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" width='200' height='200' class='img-rounded'>  
+          <% } %>
+          <div class="caption">
+            <h3><%= pet.name.$t %> </h3>
+            <h5>Breed: <%= pet.breeds.breed.$t %> </h5>
+            <h5>Sex:<%= pet.sex.$t %> </h5>
+            <h5>Age:<%= pet.age.$t %> </h5>
+            <h5><%= pet.contact.address1.$t %> </h5>
+            <h5><%= pet.contact.city.$t %> </h5>
+            <h5><%= pet.contact.phone.$t %> </h5>
+            <h5><%= pet.contact.email.$t %> </h5>
+            <h5>Description:<%= pet.description.$t %> </h5>
+          </div>
+      </div>
+    </div>
+  <%  }) %>
+</div>
+
+
+
+<% include ../partials/footer %>

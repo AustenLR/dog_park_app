@@ -1,0 +1,45 @@
+body{
+  background: #18bc9c;
+}
+
+.thumbnailYelp{
+  height: 530px;
+  width: 270px;
+  overflow: auto;
+}
+
+.thumbnailPostsIndex{
+  height: 310px;
+  width: 200px;
+  overflow: auto;
+}
+
+.thumbnailUsersIndex{
+  height: 335px;
+  width: 270px;
+  overflow: auto;
+}
+
+.thumbnailPack{
+  height: 335px;
+  width: 270px;
+  overflow: auto;
+}
+
+.thumbnailShowPosts{
+  height: 335px;
+  width: 270px;
+  overflow: auto;
+}
+
+.thumbnailShowUpvotes{
+  height: 335px;
+  width: 270px;
+  overflow: auto;
+}
+
+.thumbnailPetfinder{
+  height: 600px;
+  width: 270px;
+  overflow: auto;
+}

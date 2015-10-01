@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Comment = require('./comment');
+var User = require('./user');
 var date = new Date();
 var datePost = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear().toString().substr(2,2);
 
@@ -21,8 +22,8 @@ var postSchema = new mongoose.Schema ({
                     user: {
                       type: mongoose.Schema.Types.ObjectId,
                       ref: "User"
-                    },
-                    date: {type: String, default: datePost}
+                    }
+                    // date: {type: String, default: datePost}
                   });
 
 postSchema.pre('remove', function(next) {
