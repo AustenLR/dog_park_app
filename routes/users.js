@@ -10,7 +10,7 @@ router.use(loginMiddleware);
 
 //all users - index
 router.get('/', function(req,res){
-  db.User.find({}, function(err, users){
+  db.User.find({}).sort({ username: 1 }).exec(function(err, users){
     res.render('users/index', {users: users});
   });
 });

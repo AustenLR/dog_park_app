@@ -1,0 +1,64 @@
+#myCan{
+  background: white;
+  display: none;
+  margin-top:20px;
+  border: 8px solid gold;
+  border-style: ridge;
+}
+
+#win{
+  display: none;
+}
+
+#lost{
+  display:none;
+}
+
+#pause{
+  display:none;
+}
+
+p{
+  display: none;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+body{
+  text-align: center;
+  color: #fff;
+  background: #18bc9c;
+  font-family: 'Dancing Script', cursive;
+}
+
+hr.star-light:after {
+    color: #fff;
+    background-color: #18bc9c;
+}
+hr.star-light:after, hr.star-primary:after {
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: FontAwesome;
+    font-size: 2em;
+}
+
+#bigPic{
+  width: 250px;
+  margin-top: 20px;
+}
+
+#game{
+  font-size: 50px;
+}
+
+#rules{
+  font-size: 30px;
+}
+
+#start{
+  margin-top: 50px;
+}
+

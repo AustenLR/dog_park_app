@@ -8,7 +8,7 @@ router.use(loginMiddleware);
 
 //Home page of Posts - Index
 router.get('/', function(req, res){
-  db.Post.find({}).populate('user').exec(function(err, posts){
+  db.Post.find({}).sort({ dateCompare: -1 }).populate('user').exec(function(err, posts){
     res.render('posts/index', {posts: posts});
   });
 });

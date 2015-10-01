@@ -9,6 +9,18 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  <link rel="stylesheet" href="/stylesheets/style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  
+ <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+ <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
   <nav class='navbar navbar-default navbar-fixed-top'>
@@ -26,6 +38,7 @@
       <li role='presentation'><a href="/users">Profiles</a></li>
       <li role='presentation'><a href="/search/new">Dog Resources</a></li>
       <li role='presentation'><a href="/petfinder/search">Adopt!</a></li>
+      <li role='presentation'><a href="/game">Arcade</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if (currentUser === null){ %>
@@ -36,10 +49,24 @@
             <li role='presentation'><a href="/users/<%=currentUser._id%>">My Profile</a></li>
             <li role='presentation'><a href="/posts/new">New Post</a></li>
             <li role='presentation'><a href="/users/<%=currentUser.id%>/edit">Edit Account</a></li>
-            <li role='presentation'><a href="/logout">Logout</a></li>
+            <li role='presentation'><a href="/logout">Logout</a>
       <% } %>
     </ul>
     </div>
   </nav>
+  <br>
+  <br>
+  <br>
+
+<%if (currentUser !== null){ %>
+  <div class ='row'>
+    <div class='col-xs-offset-10'>
+      <h5>signed in as <%= currentUser.username %></h5> 
+    </div>
+  </div>
+<% } %>
+
+
+
 
   

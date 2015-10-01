@@ -14,6 +14,7 @@ var express = require('express'),
     searchRoutes = require("./routes/search");
     petfinderRoutes = require("./routes/petfinder");
     messageRoutes = require("./routes/message");
+    gameRoutes = require('./routes/game');
     require('dotenv').load();
 
 //API call for Yelp
@@ -44,6 +45,7 @@ app.use('/posts/:post_id/comments', commentsRoutes);
 app.use('/search', searchRoutes);
 app.use('/petfinder', petfinderRoutes);
 app.use('/users/:user_id/message', messageRoutes);
+app.use('/game', gameRoutes);
 
 
 //Root directory

@@ -10,6 +10,10 @@ var postSchema = new mongoose.Schema ({
                     title: {type: String, required: true},
                     picture: String,
                     date: {type: String, default: datePost},
+                    dateCompare: {
+                      default: Date.now,
+                      type: Date
+                    },
                     upvotes: [{ 
                       type: mongoose.Schema.Types.ObjectId,
                       ref: "User"                      
@@ -23,7 +27,6 @@ var postSchema = new mongoose.Schema ({
                       type: mongoose.Schema.Types.ObjectId,
                       ref: "User"
                     }
-                    // date: {type: String, default: datePost}
                   });
 
 postSchema.pre('remove', function(next) {

@@ -9,8 +9,7 @@ body{
 }
 
 .thumbnailPostsIndex{
-  height: 310px;
-  width: 200px;
+  display:inline-block;
   overflow: auto;
 }
 
