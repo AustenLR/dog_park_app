@@ -52,6 +52,6 @@ app.get('/', function(req, res){
 });
 
 //Starting the server
-app.listen(app.listen(process.env.PORT || 3000), function (){
+app.listen(process.env.PORT || 3000, function (){
   console.log('Server running');
 });
